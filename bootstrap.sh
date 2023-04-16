@@ -36,14 +36,24 @@ fi
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
 brew install starship rustup-init neovim ripgrep tmux fzf fd bat
 
-if [ ! -f ~/.config/fish ]
+if [ ! -e ~/.config/fish ]
 then
   ln -s $SCRIPT_DIR/fish ~/.config/fish
 fi
 
-if [ ! -f ~/.config/kitty ]
+if [ ! -e ~/.config/kitty ]
 then
   ln -s $SCRIPT_DIR/kitty ~/.config/kitty
+fi
+
+if [ ! -d ~/.tmux/plugins/tpm ]
+then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+if [ ! -d ~/.config/tmux ]
+then
+  ln -s $SCRIPT_DIR/tmux ~/.config/tmux
 fi
 
 echo "Your system is ready! 👌"
