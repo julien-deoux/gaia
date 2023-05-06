@@ -1,0 +1,30 @@
+[user]
+	name = Julien Déoux
+	email = juliendeoux@gmail.com
+[core]
+	excludesFile = ~/.config/git/ignore
+	editor = nvim
+[init]
+	defaultBranch = master
+[advice]
+	addIgnoredFile = false
+[alias]
+	cf = config
+	a = add
+	ci = commit
+	ps = push
+	s = status
+	cl = clone
+	co = checkout
+	pl = pull
+	st = stash
+	rb = rebase
+	f = fetch
+	br = branch
+	l = log
+	ro = restore
+	rs = reset
+[pull]
+	rebase = true
+[fetch]
+	prune = true

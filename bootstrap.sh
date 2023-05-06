@@ -56,5 +56,10 @@ then
   ln -s $SCRIPT_DIR/tmux ~/.config/tmux
 fi
 
+if [ ! -d ~/.config/git ]
+then
+  ln -s $SCRIPT_DIR/git ~/.config/git
+fi
+
 echo "Your system is ready! 👌"
 echo "Restart your terminal or run 'fish' to start having fun."
