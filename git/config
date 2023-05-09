@@ -1,6 +1,6 @@
 [user]
 	name = Julien Déoux
-	email = juliendeoux@gmail.com
+	email = julien@hiresweet.com
 [core]
 	excludesFile = ~/.config/git/ignore
 	editor = nvim
