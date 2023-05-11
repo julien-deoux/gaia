@@ -61,5 +61,10 @@ then
   ln -s $SCRIPT_DIR/git ~/.config/git
 fi
 
+if [ ! -d ~/.config/nvim ]
+then
+  ln -s $SCRIPT_DIR/nvim ~/.config/nvim
+fi
+
 echo "Your system is ready! 👌"
 echo "Restart your terminal or run 'fish' to start having fun."
