@@ -12,14 +12,10 @@ return {
     }, {
         "sainnhe/everforest",
         init = function()
-            g.everforest_background = 'hard'
-            opt.background = "light"
+            g.everforest_background = 'medium'
             cmd "colorscheme everforest"
         end
     }, {
         "sainnhe/edge",
-        init = function()
-            opt.background = "light"
-        end
     }
 }
