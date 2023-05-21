@@ -12,11 +12,12 @@ return {
             telescope.load_extension "fzf"
 
             local set = vim.keymap.set
-            set("n", "<leader>ff", ":Telescope find_files<cr>")
-            set("n", "<leader>fs", ":Telescope live_grep<cr>")
-            set("n", "<leader>fc", ":Telescope grep_string<cr>")
-            set("n", "<leader>fb", ":Telescope buffers<cr>")
-            set("n", "<leader>fg", ":Telescope git_files<cr>")
+            set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+            set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
+            set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
+            set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+            set("n", "<leader>fg", "<cmd>Telescope git_files<cr>")
+            set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
         end
     },
     {
