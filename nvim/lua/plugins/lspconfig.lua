@@ -49,6 +49,21 @@ return {
             on_attach = on_attach,
         })
 
+        lspconfig.html.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        lspconfig.sourcekit.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        lspconfig.ocamllsp.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         require("typescript").setup({
             server = {
                 capabilities = capabilities,
