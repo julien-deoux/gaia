@@ -4,6 +4,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "jose-elias-alvarez/typescript.nvim",
         "rescript-lang/vim-rescript",
+        "marilari88/twoslash-queries.nvim",
     },
     config = function()
         local lspconfig = require "lspconfig"
@@ -28,8 +29,8 @@ return {
 
             if client.name == "tsserver" then
                 set("n", "<leader>rf", ":TypescriptRenameFile<cr>")
+                require("twoslash-queries").attach(client, bufnr)
             end
-
         end
 
         local capabilities = cmp_nvim_lsp.default_capabilities()
