@@ -31,6 +31,8 @@ return {
                 set("n", "<leader>rf", ":TypescriptRenameFile<cr>")
                 require("twoslash-queries").attach(client, bufnr)
             end
+
+            require("util.format").format_on_write(client, bufnr)
         end
 
         local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -68,6 +70,17 @@ return {
         lspconfig.ocamllsp.setup({
             capabilities = capabilities,
             on_attach = on_attach,
+        })
+
+        lspconfig.jsonls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        lspconfig.graphql.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "graphql", "typescriptreact", "javascriptreact", "javascript", "typescript" }
         })
 
         require("typescript").setup({

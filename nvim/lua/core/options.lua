@@ -52,11 +52,5 @@ opt.iskeyword:append("-")
 cmd [[hi link VirtualTextError Red]]
 cmd [[hi link VirtualTextWarning Yellow]]
 
-api.nvim_create_autocmd("BufWritePre", {
-    callback = function()
-        vim.lsp.buf.format()
-    end
-})
-
 opt.list = true
 opt.listchars = "nbsp:-"
