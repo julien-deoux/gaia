@@ -18,6 +18,7 @@ return {
             set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
             set("n", "<leader>fg", "<cmd>Telescope git_files<cr>")
             set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
+            set("n", "<leader>fr", "<cmd>Telescope resume<cr>")
         end
     },
     {
