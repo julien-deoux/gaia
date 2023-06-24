@@ -11,6 +11,7 @@ return {
             sources = {
                 formatting.prettierd,
                 diagnostics.eslint_d,
+                formatting.fish_indent,
             },
 
 
