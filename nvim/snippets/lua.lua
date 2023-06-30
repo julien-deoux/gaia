@@ -7,7 +7,7 @@ return {
     s(
         { trig = "fun" },
         {
-            t("function ("),
+            t("function("),
             i(1),
             t({ ")", "\t" }),
             i(2),
