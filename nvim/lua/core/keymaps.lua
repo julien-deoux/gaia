@@ -8,6 +8,10 @@ set("i", "<CS-k>", "<Esc>:m-2<cr>==gi")
 set("v", "<CS-j>", ":m '>+1<cr>gv=gv")
 set("v", "<CS-k>", ":m '<-2<cr>gv=gv")
 
+-- Keep cursor in the center
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
+
 -- Append next line without moving cursor
 set("n", "J", "mzJ`Z")
 
