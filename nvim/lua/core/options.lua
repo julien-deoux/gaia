@@ -49,8 +49,26 @@ opt.colorcolumn = "80"
 -- Don't split words with dash (for cw and such)
 opt.iskeyword:append("-")
 
-cmd [[hi link VirtualTextError Red]]
-cmd [[hi link VirtualTextWarning Yellow]]
+cmd([[hi link VirtualTextError Red]])
+cmd([[hi link VirtualTextWarning Yellow]])
 
 opt.list = true
 opt.listchars = "nbsp:-"
+
+-- Indentation for special languages
+local two_space_languages = {
+	"javascript",
+	"javascriptreact",
+	"json",
+	"svelte",
+	"typescript",
+	"typescriptreact",
+}
+api.nvim_create_autocmd("FileType", {
+    pattern = two_space_languages,
+    callback = function()
+        opt.shiftwidth = 2
+        opt.tabstop = 2
+        opt.softtabstop = 2
+    end
+})
