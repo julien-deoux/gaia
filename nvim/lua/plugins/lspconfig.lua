@@ -15,7 +15,8 @@ return {
 		local on_attach = function(client, bufnr)
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 
-			set("n", "gf", ":Lspsaga lsp_finder<cr>", opts)
+			set("n", "gf", ":Lspsaga finder<cr>", opts)
+			set("n", "<leader>o", ":Lspsaga outline<cr>", opts)
 			set("n", "gD", vim.lsp.buf.definition, opts)
 			set("n", "gr", vim.lsp.buf.references, opts)
 			set("n", "gd", ":Lspsaga peek_definition<cr>", opts)
