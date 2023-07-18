@@ -26,11 +26,6 @@ return {
 			set("n", "<leader>za", ":Lspsaga diagnostic_jump_prev<cr>", opts)
 			set("n", "<leader>ze", ":Lspsaga diagnostic_jump_next<cr>", opts)
 			set("n", "K", ":Lspsaga hover_doc<cr>", opts)
-
-			if client.name == "tsserver" then
-				set("n", "<leader>rf", ":TypescriptRenameFile<cr>")
-				require("twoslash-queries").attach(client, bufnr)
-			end
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -52,12 +47,28 @@ return {
 
 		lspconfig.html.setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					callback = function()
+						vim.cmd("PrettierAsync")
+					end,
+				})
+			end,
 		})
 
 		lspconfig.cssls.setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					callback = function()
+						vim.cmd("PrettierAsync")
+					end,
+				})
+			end,
 		})
 
 		lspconfig.sourcekit.setup({
@@ -72,7 +83,15 @@ return {
 
 		lspconfig.jsonls.setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					callback = function()
+						vim.cmd("PrettierAsync")
+					end,
+				})
+			end,
 		})
 
 		lspconfig.rust_analyzer.setup({
@@ -88,13 +107,39 @@ return {
 
 		lspconfig.svelte.setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					callback = function()
+						vim.cmd("PrettierAsync")
+					end,
+				})
+			end,
+		})
+
+		lspconfig.eslint.setup({
+			capabilities = capabilities,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					callback = function()
+						vim.cmd("EslintFixAll")
+						vim.cmd("PrettierAsync")
+					end,
+				})
+			end,
 		})
 
 		require("typescript").setup({
 			server = {
 				capabilities = capabilities,
-				on_attach = on_attach,
+				on_attach = function(client, bufnr)
+					on_attach(client, bufnr)
+					set("n", "<leader>rf", ":TypescriptRenameFile<cr>")
+					require("twoslash-queries").attach(client, bufnr)
+				end,
 			},
 		})
 	end,

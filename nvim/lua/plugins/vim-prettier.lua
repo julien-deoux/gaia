@@ -17,8 +17,7 @@ return {
 	},
 	build = "yarn install --frozen-lockfile --production",
 	config = function()
-		vim.g["prettier#autoformat"] = 1
-		vim.g["prettier#autoformat_require_pragma"] = 0
+		vim.g["prettier#autoformat"] = 0
 		vim.b.prettier_exec_cmd = "prettierd"
 	end,
 }
