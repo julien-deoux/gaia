@@ -113,7 +113,7 @@ return {
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
 					callback = function()
-						vim.cmd("PrettierAsync")
+						vim.lsp.buf.format()
 					end,
 				})
 			end,
@@ -131,6 +131,16 @@ return {
 					end,
 				})
 			end,
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx",
+				"vue",
+				"astro",
+			},
 		})
 
 		require("typescript").setup({
