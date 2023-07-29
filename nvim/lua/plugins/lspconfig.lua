@@ -11,15 +11,24 @@ return {
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local set = vim.keymap.set
+		local cmd = vim.cmd
+		local lsp = vim.lsp
 
 		local on_attach = function(client, bufnr)
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 
 			set("n", "gf", ":Lspsaga finder<cr>", opts)
 			set("n", "<leader>o", ":Lspsaga outline<cr>", opts)
-			set("n", "gD", vim.lsp.buf.definition, opts)
+			set("n", "gd", vim.lsp.buf.definition, opts)
 			set("n", "gr", vim.lsp.buf.references, opts)
-			set("n", "gd", ":Lspsaga peek_definition<cr>", opts)
+			set("n", "gv", function()
+				cmd("vsplit")
+				lsp.buf.definition()
+			end, opts)
+			set("n", "gs", function()
+				cmd("split")
+				lsp.buf.definition()
+			end, opts)
 			set("n", "gi", vim.lsp.buf.implementation, opts)
 			set("n", "<leader>ca", ":Lspsaga code_action<cr>", opts)
 			set("n", "<leader>rn", ":Lspsaga rename<cr>", opts)
