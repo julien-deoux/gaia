@@ -5,6 +5,7 @@ return {
 		"jose-elias-alvarez/typescript.nvim",
 		"rescript-lang/vim-rescript",
 		"marilari88/twoslash-queries.nvim",
+		"folke/neodev.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -13,14 +14,16 @@ return {
 		local set = vim.keymap.set
 		local cmd = vim.cmd
 		local lsp = vim.lsp
+		local fn = vim.fn
+		local api = vim.api
 
-		local on_attach = function(client, bufnr)
+		local on_attach = function(_, bufnr)
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 
 			set("n", "gf", ":Lspsaga finder<cr>", opts)
 			set("n", "<leader>o", ":Lspsaga outline<cr>", opts)
-			set("n", "gd", vim.lsp.buf.definition, opts)
-			set("n", "gr", vim.lsp.buf.references, opts)
+			set("n", "gd", lsp.buf.definition, opts)
+			set("n", "gr", lsp.buf.references, opts)
 			set("n", "gv", function()
 				cmd("vsplit")
 				lsp.buf.definition()
@@ -29,7 +32,7 @@ return {
 				cmd("split")
 				lsp.buf.definition()
 			end, opts)
-			set("n", "gi", vim.lsp.buf.implementation, opts)
+			set("n", "gi", lsp.buf.implementation, opts)
 			set("n", "<leader>ca", ":Lspsaga code_action<cr>", opts)
 			set("n", "<leader>rn", ":Lspsaga rename<cr>", opts)
 			set("n", "<leader>d", ":Lspsaga show_line_diagnostics<cr>", opts)
@@ -45,7 +48,7 @@ return {
 			on_attach = on_attach,
 			cmd = {
 				"node",
-				vim.fn.stdpath("data") .. "/lazy/vim-rescript/server/out/server.js",
+				fn.stdpath("data") .. "/lazy/vim-rescript/server/out/server.js",
 				"--stdio",
 			},
 		})
@@ -59,10 +62,10 @@ return {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePre", {
+				api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
 					callback = function()
-						vim.cmd("PrettierAsync")
+						cmd("PrettierAsync")
 					end,
 				})
 			end,
@@ -72,10 +75,10 @@ return {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePre", {
+				api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
 					callback = function()
-						vim.cmd("PrettierAsync")
+						cmd("PrettierAsync")
 					end,
 				})
 			end,
@@ -95,10 +98,10 @@ return {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePre", {
+				api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
 					callback = function()
-						vim.cmd("PrettierAsync")
+						cmd("PrettierAsync")
 					end,
 				})
 			end,
@@ -119,10 +122,10 @@ return {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePre", {
+				api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
 					callback = function()
-						vim.lsp.buf.format()
+						lsp.buf.format()
 					end,
 				})
 			end,
@@ -132,11 +135,11 @@ return {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePre", {
+				api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
 					callback = function()
-						vim.cmd("EslintFixAll")
-						vim.cmd("PrettierAsync")
+						cmd("EslintFixAll")
+						cmd("PrettierAsync")
 					end,
 				})
 			end,
