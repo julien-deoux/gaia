@@ -6,10 +6,12 @@ return {
 		"rescript-lang/vim-rescript",
 		"marilari88/twoslash-queries.nvim",
 		"folke/neodev.nvim",
+		"nvim-telescope/telescope.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		local telescope = require("telescope.builtin")
 
 		local set = vim.keymap.set
 		local cmd = vim.cmd
@@ -23,7 +25,8 @@ return {
 			set("n", "gf", ":Lspsaga finder<cr>", opts)
 			set("n", "<leader>o", ":Lspsaga outline<cr>", opts)
 			set("n", "gd", lsp.buf.definition, opts)
-			set("n", "gr", lsp.buf.references, opts)
+			set("n", "gr", telescope.lsp_references, opts)
+			set("n", "<leader>ds", telescope.lsp_document_symbols, opts)
 			set("n", "gv", function()
 				cmd("vsplit")
 				lsp.buf.definition()
@@ -95,6 +98,19 @@ return {
 		})
 
 		lspconfig.jsonls.setup({
+			capabilities = capabilities,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					callback = function()
+						cmd("PrettierAsync")
+					end,
+				})
+			end,
+		})
+
+		lspconfig.yamlls.setup({
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
