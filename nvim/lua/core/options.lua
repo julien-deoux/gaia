@@ -63,12 +63,13 @@ local two_space_languages = {
 	"svelte",
 	"typescript",
 	"typescriptreact",
+	"ocaml",
 }
 api.nvim_create_autocmd("FileType", {
-    pattern = two_space_languages,
-    callback = function()
-        opt.shiftwidth = 2
-        opt.tabstop = 2
-        opt.softtabstop = 2
-    end
+	pattern = two_space_languages,
+	callback = function()
+		opt.shiftwidth = 2
+		opt.tabstop = 2
+		opt.softtabstop = 2
+	end,
 })
