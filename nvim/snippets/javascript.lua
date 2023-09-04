@@ -17,6 +17,21 @@ return {
 	s({ trig = "iu" }, {
 		t("import _ from 'underscore';"),
 	}),
+	s("cl", {
+		t("console.log("),
+		i(1),
+		t(");"),
+	}),
+	s({ trig = "uci" }, {
+		t("const clientId = useClientId"),
+		i(1),
+		t("();"),
+	}),
+	s({ trig = "ut" }, {
+		t("const { t } = useTranslation"),
+		i(1),
+		t("();"),
+	}),
 	s({ trig = "od" }, {
 		t("const { "),
 		i(2),

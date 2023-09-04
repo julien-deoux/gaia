@@ -5,8 +5,23 @@ local i = luasnip.insert_node
 local rep = require("luasnip.extras").rep
 
 return {
+	s("cl", {
+		t("console.log("),
+		i(1),
+		t(");"),
+	}),
 	s({ trig = "iu" }, {
 		t("import _ from 'underscore';"),
+	}),
+	s({ trig = "uci" }, {
+		t("const clientId = useClientId"),
+		i(1),
+		t("();"),
+	}),
+	s({ trig = "ut" }, {
+		t("const { t } = useTranslation"),
+		i(1),
+		t("();"),
 	}),
 	s({ trig = "fcp" }, {
 		t({ "import React, { FC } from 'react';", "", "type " }),
