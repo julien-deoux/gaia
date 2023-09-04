@@ -8,7 +8,20 @@ return {
 		},
 		config = function()
 			local telescope = require("telescope")
-			telescope.setup({})
+			telescope.setup({
+				defaults = {
+					layout_config = {
+						center = {
+							width = 0.8,
+						},
+					},
+				},
+				pickers = {
+					find_files = {
+						layout_strategy = "center",
+					},
+				},
+			})
 			telescope.load_extension("fzf")
 
 			local set = vim.keymap.set
