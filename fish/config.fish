@@ -9,6 +9,8 @@ source /Users/julien/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 set -gx LEDGER_FILE "/Users/julien/Documents/finance/2024.journal"
 
+ssh-add -q
+
 # pnpm
 set -gx PNPM_HOME "/Users/julien/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
