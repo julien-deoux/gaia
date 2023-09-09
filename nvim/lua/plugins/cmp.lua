@@ -5,6 +5,7 @@ return {
 		"hrsh7th/cmp-path", -- Suggest path
 		"hrsh7th/cmp-nvim-lsp", -- Suggest LSP tags
 		"saadparwaiz1/cmp_luasnip", -- Suggest snippets
+		"kirasok/cmp-hledger", -- hledger integration
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -30,6 +31,7 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
+				{ name = "hledger" },
 			}),
 		})
 	end,

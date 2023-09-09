@@ -11,6 +11,8 @@ if [ $KITTY_WINDOW_ID ]
     apply_system_mode
 end
 
+set -gx LEDGER_FILE "/Users/julien/Documents/finance/2023.journal"
+
 # pnpm
 set -gx PNPM_HOME "/Users/julien/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
