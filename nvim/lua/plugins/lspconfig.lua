@@ -37,12 +37,14 @@ return {
 			end, opts)
 			set("n", "gi", lsp.buf.implementation, opts)
 			set("n", "<leader>ca", ":Lspsaga code_action<cr>", opts)
-			set("n", "<leader>rn", ":Lspsaga rename<cr>", opts)
-			set("n", "<leader>d", ":Lspsaga show_line_diagnostics<cr>", opts)
-			set("n", "<leader>za", ":Lspsaga diagnostic_jump_prev<cr>", opts)
-			set("n", "<leader>ze", ":Lspsaga diagnostic_jump_next<cr>", opts)
+			set("n", "<leader>rn", lsp.buf.rename, opts)
+			set("n", "<leader>d", vim.diagnostic.open_float, opts)
+			set("n", "<leader>za", vim.diagnostic.goto_next, opts)
+			set("n", "<leader>ze", vim.diagnostic.goto_prev, opts)
 			set("n", "K", ":Lspsaga hover_doc<cr>", opts)
 		end
+
+		local unused = ""
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
