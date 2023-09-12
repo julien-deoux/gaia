@@ -38,9 +38,25 @@ return {
 			set("n", "gi", lsp.buf.implementation, opts)
 			set("n", "<leader>ca", ":Lspsaga code_action<cr>", opts)
 			set("n", "<leader>rn", lsp.buf.rename, opts)
-			set("n", "<leader>d", vim.diagnostic.open_float, opts)
-			set("n", "<leader>za", vim.diagnostic.goto_next, opts)
-			set("n", "<leader>ze", vim.diagnostic.goto_prev, opts)
+			set("n", "<leader>d", function()
+				vim.diagnostic.open_float({
+					source = "always",
+				})
+			end, opts)
+			set("n", "<leader>za", function()
+				vim.diagnostic.goto_next({
+					float = {
+						source = "always",
+					},
+				})
+			end, opts)
+			set("n", "<leader>ze", function()
+				vim.diagnostic.goto_prev({
+					float = {
+						source = "always",
+					},
+				})
+			end, opts)
 			set("n", "K", ":Lspsaga hover_doc<cr>", opts)
 		end
 
