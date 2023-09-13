@@ -44,14 +44,14 @@ return {
 				})
 			end, opts)
 			set("n", "<leader>za", function()
-				vim.diagnostic.goto_next({
+				vim.diagnostic.goto_prev({
 					float = {
 						source = "always",
 					},
 				})
 			end, opts)
 			set("n", "<leader>ze", function()
-				vim.diagnostic.goto_prev({
+				vim.diagnostic.goto_next({
 					float = {
 						source = "always",
 					},
