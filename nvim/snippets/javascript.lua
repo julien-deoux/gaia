@@ -5,7 +5,6 @@ local i = luasnip.insert_node
 local rep = require("luasnip.extras").rep
 
 return {
-
 	s({ trig = "ix" }, {
 		t("import "),
 		i(1),
@@ -22,6 +21,13 @@ return {
 		t("const { "),
 		i(2),
 		t(" } = "),
+		i(1),
+		t(";"),
+	}),
+	s({ trig = "ad" }, {
+		t("const [ "),
+		i(2),
+		t(" ] = "),
 		i(1),
 		t(";"),
 	}),
