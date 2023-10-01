@@ -53,7 +53,11 @@ cmd([[hi link VirtualTextError Red]])
 cmd([[hi link VirtualTextWarning Yellow]])
 
 opt.list = true
-opt.listchars = "nbsp:-"
+opt.listchars = {
+	nbsp = "-",
+	trail = "-",
+	tab = "> ",
+}
 
 -- Indentation for special languages
 local two_space_languages = {
