@@ -1,5 +1,8 @@
 local set = vim.keymap.set
 
+-- Ctrl+B to increment
+set("n", "<C-b>", "<C-a>")
+
 -- Move lines up and down
 set("n", "<CS-j>", ":m+<cr>==")
 set("n", "<CS-k>", ":m-2<cr>==")
