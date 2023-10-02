@@ -43,14 +43,14 @@ return {
 					source = "always",
 				})
 			end, opts)
-			set("n", "<leader>wq", function()
+			set("n", "[d", function()
 				vim.diagnostic.goto_prev({
 					float = {
 						source = "always",
 					},
 				})
 			end, opts)
-			set("n", "<leader>we", function()
+			set("n", "]d", function()
 				vim.diagnostic.goto_next({
 					float = {
 						source = "always",
@@ -59,8 +59,6 @@ return {
 			end, opts)
 			set("n", "K", ":Lspsaga hover_doc<cr>", opts)
 		end
-
-		local unused = ""
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
