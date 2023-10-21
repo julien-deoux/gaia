@@ -23,7 +23,6 @@ return {
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 
 			set("n", "gf", ":Lspsaga finder<cr>", opts)
-			set("n", "<leader>o", ":Lspsaga outline<cr>", opts)
 			set("n", "gd", lsp.buf.definition, opts)
 			set("n", "gr", telescope.lsp_references, opts)
 			set("n", "<leader>ds", telescope.lsp_document_symbols, opts)
