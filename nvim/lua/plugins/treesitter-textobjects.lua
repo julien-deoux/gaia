@@ -13,6 +13,8 @@ return {
 						["if"] = "@function.inner",
 						["ac"] = "@comment.outer",
 						["ic"] = "@comment.inner",
+						["al"] = "@loop.outer",
+						["il"] = "@loop.inner",
 					},
 				},
 			},
