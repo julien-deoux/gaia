@@ -63,7 +63,15 @@ return {
 
 		lspconfig.rescriptls.setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					callback = function()
+						lsp.buf.format()
+					end,
+				})
+			end,
 			cmd = {
 				"node",
 				fn.stdpath("data") .. "/lazy/vim-rescript/server/out/server.js",
