@@ -61,17 +61,19 @@ return {
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
+		local on_attach_with_lsp_format = function(client, bufnr)
+			on_attach(client, bufnr)
+			api.nvim_create_autocmd("BufWritePre", {
+				buffer = bufnr,
+				callback = function()
+					lsp.buf.format()
+				end,
+			})
+		end
+
 		lspconfig.rescriptls.setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						lsp.buf.format()
-					end,
-				})
-			end,
+			on_attach = on_attach_with_lsp_format,
 			cmd = {
 				"node",
 				fn.stdpath("data") .. "/lazy/vim-rescript/server/out/server.js",
@@ -117,28 +119,20 @@ return {
 
 		lspconfig.ocamllsp.setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						lsp.buf.format()
-					end,
-				})
-			end,
+			on_attach = on_attach_with_lsp_format,
+		})
+
+		lspconfig.elixirls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach_with_lsp_format,
+			cmd = {
+				"/opt/homebrew/bin/elixir-ls",
+			},
 		})
 
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						lsp.buf.format()
-					end,
-				})
-			end,
+			on_attach = on_attach_with_lsp_format,
 		})
 
 		lspconfig.jsonls.setup({
@@ -180,15 +174,7 @@ return {
 
 		lspconfig.svelte.setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						lsp.buf.format()
-					end,
-				})
-			end,
+			on_attach = on_attach_with_lsp_format,
 		})
 
 		lspconfig.eslint.setup({

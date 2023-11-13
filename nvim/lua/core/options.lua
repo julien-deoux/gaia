@@ -68,6 +68,7 @@ local two_space_languages = {
 	"typescript",
 	"typescriptreact",
 	"ocaml",
+	"elixir",
 }
 api.nvim_create_autocmd("FileType", {
 	pattern = two_space_languages,
