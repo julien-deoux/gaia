@@ -67,6 +67,8 @@ local two_space_languages = {
 	"svelte",
 	"typescript",
 	"typescriptreact",
+	"html",
+	"css",
 	"ocaml",
 	"elixir",
 }
