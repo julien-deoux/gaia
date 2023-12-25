@@ -66,5 +66,10 @@ then
   ln -s $SCRIPT_DIR/nvim ~/.config/nvim
 fi
 
+if [ ! -e ~/.config/starship.toml ]
+then
+  ln -s $SCRIPT_DIR/starship/starship.toml ~/.config/starship.toml
+fi
+
 echo "Your system is ready! 👌"
 echo "Restart your terminal or run 'fish' to start having fun."

@@ -71,6 +71,16 @@ return {
 			})
 		end
 
+		local on_attach_with_prettier = function(client, bufnr)
+			on_attach(client, bufnr)
+			api.nvim_create_autocmd("BufWritePre", {
+				buffer = bufnr,
+				callback = function()
+					cmd("PrettierAsync")
+				end,
+			})
+		end
+
 		lspconfig.rescriptls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
@@ -88,28 +98,12 @@ return {
 
 		lspconfig.html.setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						cmd("PrettierAsync")
-					end,
-				})
-			end,
+			on_attach = on_attach_with_prettier,
 		})
 
 		lspconfig.cssls.setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						cmd("PrettierAsync")
-					end,
-				})
-			end,
+			on_attach = on_attach_with_prettier,
 		})
 
 		lspconfig.sourcekit.setup({
@@ -137,28 +131,17 @@ return {
 
 		lspconfig.jsonls.setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						cmd("PrettierAsync")
-					end,
-				})
-			end,
+			on_attach = on_attach_with_prettier,
 		})
 
 		lspconfig.yamlls.setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						cmd("PrettierAsync")
-					end,
-				})
-			end,
+			on_attach = on_attach_with_prettier,
+		})
+
+		lspconfig.taplo.setup({
+			capabilities = capabilities,
+			on_attach = on_attach_with_lsp_format,
 		})
 
 		lspconfig.rust_analyzer.setup({
