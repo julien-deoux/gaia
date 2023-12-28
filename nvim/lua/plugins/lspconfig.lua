@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"jose-elias-alvarez/typescript.nvim",
-		"rescript-lang/vim-rescript",
 		"marilari88/twoslash-queries.nvim",
 		"folke/neodev.nvim",
 		"nvim-telescope/telescope.nvim",
@@ -84,11 +83,6 @@ return {
 		lspconfig.rescriptls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
-			cmd = {
-				"node",
-				fn.stdpath("data") .. "/lazy/vim-rescript/server/out/server.js",
-				"--stdio",
-			},
 		})
 
 		lspconfig.lua_ls.setup({
