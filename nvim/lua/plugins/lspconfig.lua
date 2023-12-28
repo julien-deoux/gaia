@@ -116,6 +116,12 @@ return {
 			on_attach = on_attach_with_lsp_format,
 		})
 
+		lspconfig.nixd.setup({
+			capabilities = capabilities,
+			on_attach = on_attach_with_lsp_format,
+			cmd = { "nix", "run", "nixpkgs#nixd" },
+		})
+
 		lspconfig.elixirls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
