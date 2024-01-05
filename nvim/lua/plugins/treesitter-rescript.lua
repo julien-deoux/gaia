@@ -1,5 +1,5 @@
 return {
-	"danielo515/nvim-treesitter-reason",
+	"nkrkv/nvim-treesitter-rescript",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 	},
