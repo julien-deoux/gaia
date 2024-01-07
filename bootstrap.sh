@@ -41,9 +41,9 @@ then
   ln -s $SCRIPT_DIR/fish ~/.config/fish
 fi
 
-if [ ! -e ~/.config/kitty ]
+if [ ! -e ~/.config/wezterm ]
 then
-  ln -s $SCRIPT_DIR/kitty ~/.config/kitty
+  ln -s $SCRIPT_DIR/wezterm ~/.config/wezterm
 fi
 
 if [ ! -d ~/.tmux/plugins/tpm ]

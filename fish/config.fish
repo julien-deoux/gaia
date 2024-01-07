@@ -7,10 +7,6 @@ starship init fish | source
 # opam configuration
 source /Users/julien/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
-if [ $KITTY_WINDOW_ID ]
-    apply_system_mode
-end
-
 set -gx LEDGER_FILE "/Users/julien/Documents/finance/2023.journal"
 
 # pnpm
