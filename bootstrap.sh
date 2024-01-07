@@ -34,7 +34,7 @@ else
 fi
 
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
-brew install starship rustup-init neovim ripgrep tmux fzf fd bat
+brew install starship rustup-init neovim ripgrep tmux fzf fd bat cormacrelf/tap/dark-notify
 
 if [ ! -e ~/.config/fish ]
 then
@@ -70,6 +70,15 @@ if [ ! -e ~/.config/starship.toml ]
 then
   ln -s $SCRIPT_DIR/starship/starship.toml ~/.config/starship.toml
 fi
+
+if [ ! -d ~/.local/bin ]
+then
+    mkdir -p ~/.local/bin
+fi
+
+envsubst '$HOME' < $SCRIPT_DIR/darkmode/set_mode > ~/.local/bin/set_mode
+chmod +x ~/.local/bin/set_mode
+envsubst '$HOME' < $SCRIPT_DIR/darkmode/me.juliendeoux.darkmode.plist > ~/Library/LaunchAgents/me.juliendeoux.darkmode.plist
 
 echo "Your system is ready! 👌"
 echo "Restart your terminal or run 'fish' to start having fun."
