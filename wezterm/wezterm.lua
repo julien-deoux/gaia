@@ -1,5 +1,22 @@
+local scheme_for_appearance = function(appearance)
+	if appearance:find("Dark") then
+		return "Everforest Dark (Gogh)"
+	else
+		return "Everforest Light (Gogh)"
+	end
+end
+
+local opacity_for_appearance = function(appearance)
+	if appearance:find("Dark") then
+		return 0.85
+	else
+		return 0.95
+	end
+end
+
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local appearance = wezterm.gui.get_appearance()
 
 config.font = wezterm.font({
 	family = "FiraCode Nerd Font Mono",
@@ -9,15 +26,10 @@ config.font_size = 15.0
 config.cell_width = 1.05
 config.line_height = 1.1
 
-local scheme_for_appearance = function(appearance)
-	if appearance:find("Dark") then
-		return "Everforest Dark (Gogh)"
-	else
-		return "Everforest Light (Gogh)"
-	end
-end
+config.color_scheme = scheme_for_appearance(appearance)
 
-config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
+config.window_background_opacity = opacity_for_appearance(appearance)
+config.macos_window_background_blur = 128
 
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
