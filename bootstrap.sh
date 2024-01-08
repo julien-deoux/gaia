@@ -34,6 +34,7 @@ else
 fi
 
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
+brew install --cask wezterm
 brew install starship rustup-init neovim ripgrep tmux fzf fd bat cormacrelf/tap/dark-notify
 
 if [ ! -e ~/.config/fish ]
