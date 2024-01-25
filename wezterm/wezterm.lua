@@ -1,8 +1,8 @@
 local scheme_for_appearance = function(appearance)
 	if appearance:find("Dark") then
-		return "Everforest Dark (Gogh)"
+		return "Everforest Dark"
 	else
-		return "Everforest Light (Gogh)"
+		return "Everforest Light"
 	end
 end
 
@@ -14,6 +14,7 @@ local opacity_for_appearance = function(appearance)
 	end
 end
 
+local colors = require("colors")
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local appearance = wezterm.gui.get_appearance()
@@ -25,6 +26,8 @@ config.font = wezterm.font({
 config.font_size = 15.0
 config.cell_width = 1.05
 config.line_height = 1.1
+
+config.color_schemes = colors.schemes
 
 config.color_scheme = scheme_for_appearance(appearance)
 
