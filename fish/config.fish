@@ -7,7 +7,7 @@ starship init fish | source
 # opam configuration
 source /Users/julien/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
-set -gx LEDGER_FILE "/Users/julien/Documents/finance/2023.journal"
+set -gx LEDGER_FILE "/Users/julien/Documents/finance/2024.journal"
 
 # pnpm
 set -gx PNPM_HOME "/Users/julien/Library/pnpm"
