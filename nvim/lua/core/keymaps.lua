@@ -38,3 +38,8 @@ set("n", "<leader>c", checkbox.toggle)
 
 -- Navigation
 set("n", "<leader>e", ":Ex<cr>")
+
+-- Git commands
+set("n", "<leader>grb", ":!grb")
+set("n", "<leader>gmb", ":!gmb")
+set("n", "<leader>gpsu", ":!gpsu")
