@@ -13,6 +13,7 @@
 	a = add
 	ci = commit
 	ps = push
+    pf = push --force-with-lease
 	s = status
 	cl = clone
 	co = checkout
