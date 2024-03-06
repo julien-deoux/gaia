@@ -35,3 +35,6 @@ set("v", "<leader>y", '"+y')
 
 -- Check task
 set("n", "<leader>c", checkbox.toggle)
+
+-- Navigation
+set("n", "<leader>e", ":Ex<cr>")
