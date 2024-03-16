@@ -32,6 +32,7 @@ return {
 			set("n", "<leader>fg", "<cmd>Telescope git_files<cr>")
 			set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
 			set("n", "<leader>fr", "<cmd>Telescope resume<cr>")
+			set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 		end,
 	},
 	{

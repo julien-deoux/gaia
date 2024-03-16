@@ -15,13 +15,11 @@ return {
 		local set = vim.keymap.set
 		local cmd = vim.cmd
 		local lsp = vim.lsp
-		local fn = vim.fn
 		local api = vim.api
 
 		local on_attach = function(_, bufnr)
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 
-			set("n", "gf", ":Lspsaga finder<cr>", opts)
 			set("n", "gd", lsp.buf.definition, opts)
 			set("n", "gr", telescope.lsp_references, opts)
 			set("n", "<leader>ds", telescope.lsp_document_symbols, opts)
@@ -34,7 +32,7 @@ return {
 				lsp.buf.definition()
 			end, opts)
 			set("n", "gi", lsp.buf.implementation, opts)
-			set("n", "<leader>ca", ":Lspsaga code_action<cr>", opts)
+			set("n", "<leader>ca", lsp.buf.code_action, opts)
 			set("n", "<leader>rn", lsp.buf.rename, opts)
 			set("n", "<leader>d", function()
 				vim.diagnostic.open_float({
@@ -55,7 +53,7 @@ return {
 					},
 				})
 			end, opts)
-			set("n", "K", ":Lspsaga hover_doc<cr>", opts)
+			set("n", "K", lsp.buf.hover, opts)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
