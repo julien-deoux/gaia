@@ -81,6 +81,13 @@ return {
 		lspconfig.rescriptls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
+			init_options = {
+				extensionConfiguration = {
+					incrementalTypechecking = {
+						enabled = true,
+					},
+				},
+			},
 		})
 
 		lspconfig.lua_ls.setup({
