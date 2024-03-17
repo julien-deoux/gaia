@@ -21,5 +21,5 @@ return {
 			end,
 		})
 	end,
-	build = "brew install stylua",
+	build = "cargo install stylua",
 }
