@@ -25,6 +25,7 @@
 	l = log
 	ro = restore
 	rs = reset
+    m = merge
 [pull]
 	rebase = true
 [fetch]
