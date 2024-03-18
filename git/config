@@ -26,6 +26,7 @@
 	ro = restore
 	rs = reset
     m = merge
+    cp = cherry-pick
 [pull]
 	rebase = true
 [fetch]
