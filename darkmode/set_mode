@@ -1,8 +1,0 @@
-#! /bin/sh
-
-mode=$1
-lsof /private/tmp/tmux-501/default > /dev/null
-if [ $? -ne 1 ]
-then
-    /opt/homebrew/bin/tmux source-file $HOME/.config/tmux/$mode.conf
-fi

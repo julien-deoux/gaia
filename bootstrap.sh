@@ -77,9 +77,5 @@ then
     mkdir -p ~/.local/bin
 fi
 
-envsubst '$HOME' < $SCRIPT_DIR/darkmode/set_mode > ~/.local/bin/set_mode
-chmod +x ~/.local/bin/set_mode
-envsubst '$HOME' < $SCRIPT_DIR/darkmode/me.juliendeoux.darkmode.plist > ~/Library/LaunchAgents/me.juliendeoux.darkmode.plist
-
 echo "Your system is ready! 👌"
 echo "Restart your terminal or run 'fish' to start having fun."
