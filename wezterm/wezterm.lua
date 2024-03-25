@@ -24,7 +24,7 @@ config.font = wezterm.font({
 	harfbuzz_features = { "onum" },
 })
 config.font_size = 15.0
-config.cell_width = 1.05
+config.cell_width = 1
 config.line_height = 1.1
 
 config.color_schemes = colors.schemes
