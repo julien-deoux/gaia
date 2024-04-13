@@ -12,6 +12,7 @@ return {
 		"typescriptreact",
 		"markdown",
 		"json",
+		"jsonc",
 		"yaml",
 		"svelte",
 	},
