@@ -8,9 +8,9 @@ end
 
 local opacity_for_appearance = function(appearance)
 	if appearance:find("Dark") then
-		return 0.85
+		return 1
 	else
-		return 0.95
+		return 1
 	end
 end
 
@@ -42,5 +42,7 @@ config.window_padding = {
 	bottom = 0,
 }
 config.window_decorations = "RESIZE"
+
+config.warn_about_missing_glyphs = false
 
 return config
