@@ -97,7 +97,7 @@ return {
 
 		lspconfig.html.setup({
 			capabilities = capabilities,
-			on_attach = on_attach_with_prettier,
+			on_attach = on_attach_with_lsp_format,
 		})
 
 		lspconfig.cssls.setup({
@@ -134,6 +134,11 @@ return {
 			on_attach = on_attach_with_lsp_format,
 		})
 
+		lspconfig.templ.setup({
+			capabilities = capabilities,
+			on_attach = on_attach_with_lsp_format,
+		})
+
 		lspconfig.jsonls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach_with_prettier,
@@ -161,6 +166,11 @@ return {
 		})
 
 		lspconfig.svelte.setup({
+			capabilities = capabilities,
+			on_attach = on_attach_with_lsp_format,
+		})
+
+		lspconfig.astro.setup({
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
