@@ -37,4 +37,4 @@ set("v", "<leader>y", '"+y')
 set("n", "<leader>c", checkbox.toggle)
 
 -- Navigation
-set("n", "<leader>e", ":Ex<cr>")
+set("n", "<leader>e", ":Oil<cr>")
