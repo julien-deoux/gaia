@@ -175,6 +175,11 @@ return {
 			on_attach = on_attach_with_lsp_format,
 		})
 
+		lspconfig.biome.setup({
+			capabilities = capabilities,
+			on_attach = on_attach_with_lsp_format,
+		})
+
 		lspconfig.eslint.setup({
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
