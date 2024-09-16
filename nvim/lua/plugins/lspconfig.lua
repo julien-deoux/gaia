@@ -172,7 +172,7 @@ return {
 
 		lspconfig.astro.setup({
 			capabilities = capabilities,
-			on_attach = on_attach_with_lsp_format,
+			on_attach = on_attach_with_prettier,
 		})
 
 		lspconfig.biome.setup({

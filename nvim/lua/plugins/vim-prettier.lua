@@ -15,8 +15,9 @@ return {
 		"jsonc",
 		"yaml",
 		"svelte",
+		"astro",
 	},
-	build = "pnpm install --frozen-lockfile --production",
+	build = "bun install --frozen-lockfile --production",
 	config = function()
 		vim.g["prettier#autoformat"] = 0
 		vim.b.prettier_exec_cmd = "prettierd"
