@@ -2,7 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"jose-elias-alvarez/typescript.nvim",
 		"marilari88/twoslash-queries.nvim",
 		"folke/neodev.nvim",
 		"nvim-telescope/telescope.nvim",
@@ -204,12 +203,11 @@ return {
 			},
 		})
 
-		require("typescript").setup({
+		lspconfig.ts_ls.setup({
 			server = {
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
 					on_attach(client, bufnr)
-					set("n", "<leader>rf", ":TypescriptRenameFile<cr>")
 					require("twoslash-queries").attach(client, bufnr)
 				end,
 			},
