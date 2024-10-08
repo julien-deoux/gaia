@@ -1,3 +1,3 @@
 function t
-    nvim ~/todo.txt
+    nvim ~/todo.md
 end
