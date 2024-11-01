@@ -17,7 +17,10 @@
       homeConfigurations = {
         "julien" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
-          modules = [ ./home.nix ];
+          modules = [
+            ./home.nix
+            ./programs
+          ];
         };
       };
     };
