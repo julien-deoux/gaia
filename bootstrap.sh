@@ -35,7 +35,7 @@ fi
 
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
 brew install --cask wezterm
-brew install starship rustup-init neovim ripgrep tmux fzf fd bat cormacrelf/tap/dark-notify
+brew install starship rustup-init neovim ripgrep fzf fd bat cormacrelf/tap/dark-notify
 
 if [ ! -e ~/.config/fish ]
 then
@@ -45,16 +45,6 @@ fi
 if [ ! -e ~/.config/wezterm ]
 then
   ln -s $SCRIPT_DIR/wezterm ~/.config/wezterm
-fi
-
-if [ ! -d ~/.tmux/plugins/tpm ]
-then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-
-if [ ! -d ~/.config/tmux ]
-then
-  ln -s $SCRIPT_DIR/tmux ~/.config/tmux
 fi
 
 if [ ! -d ~/.config/home-manager ]
