@@ -190,4 +190,9 @@ in
       unbind -T copy-mode-vi MouseDragEnd1Pane
     '';
   };
+
+  programs.starship = {
+    enable = true;
+    settings.command_timeout = 1000;
+  };
 }

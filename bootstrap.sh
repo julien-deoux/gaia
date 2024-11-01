@@ -35,7 +35,7 @@ fi
 
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
 brew install --cask wezterm
-brew install starship rustup-init neovim ripgrep fzf fd bat cormacrelf/tap/dark-notify
+brew install rustup-init neovim ripgrep fzf fd bat cormacrelf/tap/dark-notify
 
 if [ ! -e ~/.config/fish ]
 then
@@ -55,11 +55,6 @@ fi
 if [ ! -d ~/.config/nvim ]
 then
   ln -s $SCRIPT_DIR/nvim ~/.config/nvim
-fi
-
-if [ ! -e ~/.config/starship.toml ]
-then
-  ln -s $SCRIPT_DIR/starship/starship.toml ~/.config/starship.toml
 fi
 
 if [ ! -d ~/.local/bin ]
