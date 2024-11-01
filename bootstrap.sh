@@ -57,9 +57,9 @@ then
   ln -s $SCRIPT_DIR/tmux ~/.config/tmux
 fi
 
-if [ ! -d ~/.config/git ]
+if [ ! -d ~/.config/home-manager ]
 then
-  ln -s $SCRIPT_DIR/git ~/.config/git
+  ln -s $SCRIPT_DIR/home-manager ~/.config/home-manager
 fi
 
 if [ ! -d ~/.config/nvim ]

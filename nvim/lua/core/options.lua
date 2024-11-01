@@ -72,6 +72,7 @@ local two_space_languages = {
 	"ocaml",
 	"elixir",
 	"rescript",
+	"nix",
 }
 api.nvim_create_autocmd("FileType", {
 	pattern = two_space_languages,
