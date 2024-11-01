@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
 let
   tmuxDarkNotify = pkgs.tmuxPlugins.mkTmuxPlugin {
