@@ -37,11 +37,6 @@ brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
 brew install --cask wezterm
 brew install rustup-init neovim ripgrep fzf fd bat cormacrelf/tap/dark-notify
 
-if [ ! -e ~/.config/fish ]
-then
-  ln -s $SCRIPT_DIR/fish ~/.config/fish
-fi
-
 if [ ! -e ~/.config/wezterm ]
 then
   ln -s $SCRIPT_DIR/wezterm ~/.config/wezterm
