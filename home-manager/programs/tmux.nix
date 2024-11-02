@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 let
-  tmuxDarkNotify = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "darkNotify";
+  dark-notify = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "dark-notify";
     version = "unstable-2024-11-01";
     src = pkgs.fetchFromGitHub {
       owner = "erikw";
@@ -14,6 +14,27 @@ let
 in
 
 {
+  home.file = {
+    ".config/tmux/light.conf".text = ''
+      set -g status-justify centre
+      set -g status-left-length 20
+      set -g status-style 'bg=#f4f0d9 fg=#5c6a72'
+      set -g status-right '#[fg=#92b259,bg=#f4f0d9]#[fg=#fdf6e3,bg=#92b259,bold] #{pane_current_path} '
+      set -g status-left '#[fg=#fdf6e3,bg=#92b259,bold] #S #[fg=#92b259,bg=#f4f0d9]'
+      setw -g window-status-current-format '#[fg=#e5e2cc,bg=#f4f0d9]#[fg=#829181,bg=#e5e2cc,bold] #I #W #[fg=#e5e2cc,bg=#f4f0d9]'
+      setw -g window-status-format '  #I #W  '
+    '';
+    ".config/tmux/dark.conf".text = ''
+      set -g status-justify centre
+      set -g status-left-length 20
+      set -g status-style 'bg=#343f44 fg=#849289'
+      set -g status-right '#[fg=#a7c080,bg=#343f44]#[fg=#2e353b,bg=#a7c080,bold] #{pane_current_path} '
+      set -g status-left '#[fg=#2e353b,bg=#a7c080,bold] #S #[fg=#a7c080,bg=#343f44]'
+      setw -g window-status-current-format '#[fg=#475258,bg=#343f44]#[fg=#9da9a0,bg=#475258,bold] #I #W #[fg=#475258,bg=#343f44]'
+      setw -g window-status-format '  #I #W  '
+    '';
+  };
+
   programs.tmux = {
     enable = true;
     keyMode = "vi";
@@ -28,15 +49,7 @@ in
       # Copy with Y
       pkgs.tmuxPlugins.yank
       # Light/Dark mode
-      {
-        plugin = tmuxDarkNotify;
-        extraConfig = ''
-          set -g @dark-notify-theme-path-light /Users/julien/git/gaia/tmux/light.conf
-          set -g @dark-notify-theme-path-dark /Users/julien/git/gaia/tmux/dark.conf
-          if-shell "test -e /Users/julien/.local/state/tmux/tmux-dark-notify-theme.conf" \
-               "source-file /Users/julien/.local/state/tmux/tmux-dark-notify-theme.conf"
-        '';
-      }
+      dark-notify
     ];
     extraConfig = ''
       # Better colors
@@ -75,6 +88,11 @@ in
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
       # don't exit copy mode after dragging with mouse
       unbind -T copy-mode-vi MouseDragEnd1Pane
+
+      set -g @dark-notify-theme-path-light ~/.config/tmux/light.conf
+      set -g @dark-notify-theme-path-dark ~/.config/tmux/dark.conf
+      if-shell "test -e ~/.local/state/tmux/tmux-dark-notify-theme.conf" \
+          "source-file ~/.local/state/tmux/tmux-dark-notify-theme.conf"
     '';
   };
 }
