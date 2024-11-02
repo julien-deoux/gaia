@@ -5,5 +5,6 @@
     ./tmux.nix
     ./starship.nix
     ./fish.nix
+    ./bun.nix
   ];
 }
