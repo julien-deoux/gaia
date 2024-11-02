@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  gca = import ./pkgs/gca { pkgs = pkgs; };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -19,6 +22,7 @@
   home.packages = [
     pkgs.nixd
     pkgs.nixfmt-rfc-style
+    gca
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -71,6 +75,7 @@
 
   home.sessionPath = [
     "/opt/homebrew/bin"
+    "$HOME/.local/bin"
   ];
 
   # Let Home Manager install and manage itself.
