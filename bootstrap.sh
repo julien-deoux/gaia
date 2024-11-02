@@ -42,15 +42,5 @@ then
   ln -s $SCRIPT_DIR/wezterm ~/.config/wezterm
 fi
 
-if [ ! -d ~/.config/home-manager ]
-then
-  ln -s $SCRIPT_DIR/home-manager ~/.config/home-manager
-fi
-
-if [ ! -d ~/.local/bin ]
-then
-    mkdir -p ~/.local/bin
-fi
-
 echo "Your system is ready! 👌"
 echo "Restart your terminal or run 'fish' to start having fun."
