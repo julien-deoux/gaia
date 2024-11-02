@@ -2,45 +2,16 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-if [ ! -d /opt/homebrew ]
+if [ ! -d /nix ]
 then
-  echo "Installing Homebrew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Installing Nix"
+  sh <(curl -L https://nixos.org/nix/install)
 else
-  echo "An existing Homebrew was already found"
+  echo "An existing Nix was already found"
 fi
 
-if [ -z "${HOMEBREW_PREFIX}" ]
-then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  echo "Homebrew already in PATH"
-fi
-
-if [ ! -f /opt/homebrew/bin/fish ]
-then
-  echo "Installing fish"
-  brew install fish
-else
-  echo "Fish is already installed"
-fi
-
-if [ ! $SHELL = /opt/homebrew/bin/fish ]
-then
-  echo "Setting fish as your default shell"
-  chsh -s /opt/homebrew/bin/fish
-else
-  echo "Fish is already your default shell"
-fi
-
-brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
-brew install --cask wezterm
-brew install rustup-init cormacrelf/tap/dark-notify
-
-if [ ! -e ~/.config/wezterm ]
-then
-  ln -s $SCRIPT_DIR/wezterm ~/.config/wezterm
-fi
+nix run nix-darwin --experimental-features 'nix-command flakes' -- switch --flake $SCRIPT_DIR/nix-darwin
+nix run home-manager --experimental-features 'nix-command flakes' -- switch --flake $SCRIPT_DIR/home-manager
 
 echo "Your system is ready! 👌"
-echo "Restart your terminal or run 'fish' to start having fun."
+echo "Restart your computer to start having fun."

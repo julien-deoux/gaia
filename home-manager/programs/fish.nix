@@ -6,6 +6,8 @@
       g = "git";
       v = "nvim";
       t = "nvim ~/todo.md";
+      home = "home-manager switch --flake";
+      rebuild = "darwin-rebuild switch --flake";
     };
     interactiveShellInit = ''
       set -gx PNPM_HOME $HOME/Library/pnpm

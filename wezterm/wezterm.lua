@@ -27,6 +27,8 @@ config.font_size = 15.0
 config.cell_width = 1
 config.line_height = 1.1
 
+config.front_end = "WebGpu"
+
 config.color_schemes = colors.schemes
 
 config.color_scheme = scheme_for_appearance(appearance)

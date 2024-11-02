@@ -5,5 +5,6 @@
     ./tmux.nix
     ./fish.nix
     ./nvim.nix
+    ./wezterm.nix
   ];
 }

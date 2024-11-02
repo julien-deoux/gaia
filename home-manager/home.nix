@@ -79,6 +79,7 @@ in
   };
 
   home.sessionPath = [
+    "/run/current-system/sw/bin"
     "/opt/homebrew/bin"
     "$HOME/.local/bin"
   ];
