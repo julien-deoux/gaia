@@ -20,4 +20,8 @@
   };
   programs.bat.enable = true;
   programs.ripgrep.enable = true;
+  programs.go = {
+    enable = true;
+    goPath = "go";
+  };
 }
