@@ -35,7 +35,7 @@ fi
 
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
 brew install --cask wezterm
-brew install rustup-init neovim ripgrep fzf fd bat cormacrelf/tap/dark-notify
+brew install rustup-init cormacrelf/tap/dark-notify
 
 if [ ! -e ~/.config/wezterm ]
 then
@@ -45,11 +45,6 @@ fi
 if [ ! -d ~/.config/home-manager ]
 then
   ln -s $SCRIPT_DIR/home-manager ~/.config/home-manager
-fi
-
-if [ ! -d ~/.config/nvim ]
-then
-  ln -s $SCRIPT_DIR/nvim ~/.config/nvim
 fi
 
 if [ ! -d ~/.local/bin ]
