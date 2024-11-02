@@ -22,6 +22,11 @@ in
   home.packages = [
     pkgs.nixd
     pkgs.nixfmt-rfc-style
+    pkgs.hurl
+    pkgs.hledger
+    pkgs.lua-language-server
+    pkgs.stylua
+    pkgs.fnm
     gca
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -80,4 +85,27 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.bun.enable = true;
+  programs.fd.enable = true;
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+  programs.starship = {
+    enable = true;
+    settings.command_timeout = 1000;
+    enableFishIntegration = true;
+  };
+  programs.bat.enable = true;
+  programs.ripgrep.enable = true;
+  programs.go = {
+    enable = true;
+    goPath = "go";
+  };
+  # programs.opam = {
+  #   enable = true;
+  #   enableFishIntegration = true;
+  # };
+  programs.jq.enable = true;
+  programs.htop.enable = true;
 }
