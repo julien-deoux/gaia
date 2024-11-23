@@ -22,4 +22,4 @@ vim.api.nvim_create_user_command("ColorsApplySystem", apply_system_mode, { desc 
 
 vim.keymap.set("n", "<leader>as", apply_system_mode)
 
-apply_system_mode()
+pcall(apply_system_mode)

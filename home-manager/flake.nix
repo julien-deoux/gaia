@@ -13,12 +13,22 @@
     { nixpkgs, home-manager, ... }:
     {
       packages."aarch64-darwin".default = home-manager.packages."aarch64-darwin".default;
+      packages."x86_64-linux".default = home-manager.packages."x86_64-linux".default;
 
       homeConfigurations = {
-        "julien" = home-manager.lib.homeManagerConfiguration {
+        "julien-macos" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
-            ./home.nix
+            ./base.nix
+            ./macos.nix
+            ./programs
+          ];
+        };
+        "julien-linux" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { system = "x86_64-linux"; };
+          modules = [
+            ./base.nix
+            ./linux.nix
             ./programs
           ];
         };

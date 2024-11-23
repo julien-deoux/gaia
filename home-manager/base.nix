@@ -1,13 +1,11 @@
 { pkgs, ... }:
 let
   gca = import ./pkgs/gca { pkgs = pkgs; };
-  dark-notify = import ./pkgs/dark-notify { pkgs = pkgs; };
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "julien";
-  home.homeDirectory = "/Users/julien";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -29,8 +27,10 @@ in
     pkgs.stylua
     pkgs.fnm
     pkgs.rustup
+    pkgs.gnumake
+    pkgs.gcc
+    pkgs.fira-code-nerdfont
     gca
-    dark-notify
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -80,11 +80,6 @@ in
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
-  home.sessionPath = [
-    "/run/current-system/sw/bin"
-    "/opt/homebrew/bin"
-  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

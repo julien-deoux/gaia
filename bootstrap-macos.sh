@@ -10,8 +10,11 @@ else
   echo "An existing Nix was already found"
 fi
 
-nix run nix-darwin --experimental-features 'nix-command flakes' -- switch --flake $SCRIPT_DIR/nix-darwin
-nix run home-manager --experimental-features 'nix-command flakes' -- switch --flake $SCRIPT_DIR/home-manager
+mkdir -p ~/.config/nix
+echo 'experimental-features = nix-command flakes' > ~/.config/nix/nix.conf
+
+nix run nix-darwin -- switch --flake $SCRIPT_DIR/nix-darwin
+nix run home-manager -- switch --flake $SCRIPT_DIR/home-manager#julien-macos
 
 echo "Your system is ready! 👌"
 echo "Restart your computer to start having fun."
