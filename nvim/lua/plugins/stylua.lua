@@ -21,5 +21,4 @@ return {
 			end,
 		})
 	end,
-	build = "cargo install stylua",
 }
