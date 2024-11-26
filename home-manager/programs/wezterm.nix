@@ -4,7 +4,4 @@
     source = ./../../wezterm;
     recursive = true;
   };
-  programs.wezterm = {
-    enable = true;
-  };
 }
