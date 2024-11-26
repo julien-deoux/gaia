@@ -14,6 +14,7 @@
       set -gx BUN_INSTALL $HOME/.bun
       set -gx PATH $BUN_INSTALL/bin $PATH
       set -gx PATH $HOME/go/bin $PATH
+      set -gx PATH $HOME/.cargo/bin $PATH
       set fish_greeting
       fnm env --use-on-cd --shell fish | source
     '';
