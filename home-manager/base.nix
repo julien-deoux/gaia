@@ -1,6 +1,9 @@
 { pkgs, ... }:
 let
   gca = import ./pkgs/gca { pkgs = pkgs; };
+  gmb = import ./pkgs/gmb { pkgs = pkgs; };
+  gpsu = import ./pkgs/gpsu { pkgs = pkgs; };
+  grb = import ./pkgs/grb { pkgs = pkgs; };
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -31,6 +34,9 @@ in
     pkgs.gcc
     pkgs.fira-code-nerdfont
     gca
+    gmb
+    gpsu
+    grb
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
