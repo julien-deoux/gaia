@@ -33,6 +33,7 @@ in
     pkgs.gnumake
     pkgs.gcc
     pkgs.fira-code-nerdfont
+    pkgs.gleam
     gca
     gmb
     gpsu
