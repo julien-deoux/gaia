@@ -34,6 +34,7 @@ in
     pkgs.gcc
     pkgs.fira-code-nerdfont
     pkgs.gleam
+    pkgs.mongosh
     gca
     gmb
     gpsu
