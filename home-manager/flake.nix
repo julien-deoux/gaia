@@ -18,6 +18,9 @@
       homeConfigurations = {
         "julien-macos" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          extraSpecialArgs = {
+            copyToClipboard = "pbcopy";
+          };
           modules = [
             ./base.nix
             ./macos.nix
@@ -26,6 +29,9 @@
         };
         "julien-linux" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { system = "x86_64-linux"; };
+          extraSpecialArgs = {
+            copyToClipboard = "xclip -selection clipboard -i";
+          };
           modules = [
             ./base.nix
             ./linux.nix

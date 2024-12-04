@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, specialArgs, ... }:
 
 let
   dark-notify = pkgs.tmuxPlugins.mkTmuxPlugin {
@@ -46,8 +46,6 @@ in
     plugins = [
       # Navigate panes and nvim with Ctrl-hjkl
       pkgs.tmuxPlugins.vim-tmux-navigator
-      # Copy with Y
-      pkgs.tmuxPlugins.yank
       # Light/Dark mode
       dark-notify
     ];
@@ -63,6 +61,8 @@ in
       set -g display-time 4000
       # Refresh 'status-left' and 'status-right' more often, from every 15s to 5s
       set -g status-interval 5
+
+      set -g set-clipboard on
 
       set-option -g status-position top
       # Split panes
@@ -85,7 +85,8 @@ in
       # rectangle selection
       bind-key -T copy-mode-vi v send-keys -X rectangle-toggle
       # copy text with "y"
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "${specialArgs.copyToClipboard}"
+
       # don't exit copy mode after dragging with mouse
       unbind -T copy-mode-vi MouseDragEnd1Pane
 
