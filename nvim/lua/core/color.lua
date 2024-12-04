@@ -3,8 +3,14 @@ local setmode = function(mode)
 end
 
 local apply_system_mode = function()
-	local output = vim.fn.system({ "defaults", "read", "-g", "AppleInterfaceStyle" })
-	if output == "Dark\n" then
+	local output = ""
+	if vim.fn.executable("defaults") == 1 then
+		output = vim.fn.system({ "defaults", "read", "-g", "AppleInterfaceStyle" })
+	end
+	if vim.fn.executable("kreadconfig5") == 1 then
+		output = vim.fn.system({ "kreadconfig5", "--file", "kdeglobals", "--group", "General", "--key", "ColorScheme" })
+	end
+	if output:find("Dark") then
 		setmode("dark")
 	else
 		setmode("light")
