@@ -19,10 +19,6 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local appearance = wezterm.gui.get_appearance()
 
-config.font = wezterm.font({
-	family = "FiraCode Nerd Font Mono",
-	harfbuzz_features = { "onum" },
-})
 config.font_size = 15.0
 config.cell_width = 1
 config.line_height = 1.1
