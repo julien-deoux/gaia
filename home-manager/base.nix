@@ -35,6 +35,7 @@ in
     pkgs.fira-code-nerdfont
     pkgs.gleam
     pkgs.mongosh
+    pkgs.google-cloud-sdk
     gca
     gmb
     gpsu
