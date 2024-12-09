@@ -99,6 +99,7 @@ in
     enable = true;
     settings.command_timeout = 1000;
     enableFishIntegration = true;
+    enableNushellIntegration = false;
   };
   programs.bat.enable = true;
   programs.ripgrep.enable = true;
@@ -112,4 +113,5 @@ in
   # };
   programs.jq.enable = true;
   programs.htop.enable = true;
+  programs.nushell.enable = true;
 }
