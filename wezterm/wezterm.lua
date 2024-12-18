@@ -1,8 +1,8 @@
 local scheme_for_appearance = function(appearance)
 	if appearance:find("Dark") then
-		return "Everforest Dark"
+		return "JD Dark"
 	else
-		return "Everforest Light"
+		return "JD Light"
 	end
 end
 

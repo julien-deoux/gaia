@@ -2,8 +2,10 @@ local M = {}
 
 local wezterm = require("wezterm")
 
-local everforest_dark_gogh = wezterm.color.get_builtin_schemes()["Everforest Dark (Gogh)"]
-local everforest_light_gogh = wezterm.color.get_builtin_schemes()["Everforest Light (Gogh)"]
+local everforest_dark = wezterm.color.get_builtin_schemes()["Everforest Dark Hard (Gogh)"]
+local everforest_light = wezterm.color.get_builtin_schemes()["Everforest Light Hard (Gogh)"]
+local catppuccin_light = wezterm.color.get_builtin_schemes()["Catppuccin Latte"]
+local catppuccin_dark = wezterm.color.get_builtin_schemes()["Catppuccin Frappe"]
 
 local better_cursor = function(color_scheme)
 	color_scheme.cursor_fg = color_scheme.background
@@ -11,8 +13,8 @@ local better_cursor = function(color_scheme)
 end
 
 M.schemes = {
-	["Everforest Dark"] = better_cursor(everforest_dark_gogh),
-	["Everforest Light"] = better_cursor(everforest_light_gogh),
+	["JD Dark"] = everforest_dark,
+	["JD Light"] = everforest_light,
 }
 
 return M

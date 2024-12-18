@@ -3,20 +3,27 @@ local cmd = vim.cmd
 
 return {
 	{
-		"sainnhe/sonokai",
-		init = function()
-			g.sonokai_style = "andromeda"
-			g.sonokai_better_performance = 1
-		end,
+		"rose-pine/neovim",
+		name = "rose-pine",
 	},
 	{
 		"sainnhe/everforest",
-		init = function()
-			g.everforest_background = "medium"
+		name = "everforest",
+		config = function()
+			g.everforest_background = "hard"
 			cmd("colorscheme everforest")
 		end,
 	},
 	{
-		"sainnhe/edge",
+		"catppuccin/nvim",
+		name = "catppuccin",
+		config = function()
+			require("catppuccin").setup({
+				background = {
+					light = "latte",
+					dark = "frappe",
+				},
+			})
+		end,
 	},
 }
