@@ -33,6 +33,7 @@ in
     pkgs.gnumake
     pkgs.gcc
     pkgs.gleam
+    pkgs.swi-prolog
     gca
     gmb
     gpsu

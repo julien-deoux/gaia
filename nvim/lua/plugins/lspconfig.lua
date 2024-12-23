@@ -104,6 +104,11 @@ return {
 			on_attach = on_attach_with_lsp_format,
 		})
 
+		lspconfig.prolog_ls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach_with_lsp_format,
+		})
+
 		lspconfig.purescriptls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
