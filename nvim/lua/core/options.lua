@@ -74,6 +74,7 @@ local two_space_languages = {
 	"rescript",
 	"nix",
 	"gleam",
+	"purescript",
 }
 api.nvim_create_autocmd("FileType", {
 	pattern = two_space_languages,
