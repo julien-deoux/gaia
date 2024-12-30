@@ -6,14 +6,6 @@ local scheme_for_appearance = function(appearance)
 	end
 end
 
-local opacity_for_appearance = function(appearance)
-	if appearance:find("Dark") then
-		return 1
-	else
-		return 1
-	end
-end
-
 local colors = require("colors")
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
@@ -25,12 +17,11 @@ config.line_height = 1.1
 
 config.front_end = "WebGpu"
 
+config.harfbuzz_features = { "calt=0" }
+
 config.color_schemes = colors.schemes
 
 config.color_scheme = scheme_for_appearance(appearance)
-
-config.window_background_opacity = opacity_for_appearance(appearance)
-config.macos_window_background_blur = 128
 
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
