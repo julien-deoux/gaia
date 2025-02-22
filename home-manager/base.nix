@@ -25,15 +25,9 @@ in
     pkgs.nixd
     pkgs.nixfmt-rfc-style
     pkgs.hurl
-    pkgs.hledger
     pkgs.lua-language-server
     pkgs.stylua
     pkgs.fnm
-    pkgs.rustup
-    pkgs.gnumake
-    pkgs.gcc
-    pkgs.gleam
-    pkgs.swi-prolog
     gca
     gmb
     gpsu
@@ -90,7 +84,6 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.bun.enable = true;
   programs.fd.enable = true;
   programs.fzf = {
     enable = true;
@@ -104,14 +97,6 @@ in
   };
   programs.bat.enable = true;
   programs.ripgrep.enable = true;
-  programs.go = {
-    enable = true;
-    goPath = "go";
-  };
-  # programs.opam = {
-  #   enable = true;
-  #   enableFishIntegration = true;
-  # };
   programs.jq.enable = true;
   programs.htop.enable = true;
   programs.nushell.enable = true;
