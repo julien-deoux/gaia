@@ -6,5 +6,6 @@
     ./fish.nix
     ./nvim.nix
     ./wezterm.nix
+    ./ghostty.nix
   ];
 }
