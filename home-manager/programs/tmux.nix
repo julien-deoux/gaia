@@ -39,7 +39,7 @@ in
     enable = true;
     keyMode = "vi";
     prefix = "C-a";
-    terminal = "screen-256color";
+    terminal = "tmux-256color";
     baseIndex = 1;
     mouse = true;
     sensibleOnTop = false;
