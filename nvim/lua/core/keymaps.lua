@@ -1,4 +1,3 @@
-local checkbox = require("core.checkbox")
 local set = vim.keymap.set
 
 -- Ctrl+B to increment
@@ -32,9 +31,6 @@ set("v", "<leader>d", '"_d')
 -- Yank to system clipboard
 set("n", "<leader>y", '"+y')
 set("v", "<leader>y", '"+y')
-
--- Check task
-set("n", "<leader>c", checkbox.toggle)
 
 -- Navigation
 set("n", "<leader>e", ":Oil<cr>")
