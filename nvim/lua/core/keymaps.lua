@@ -33,8 +33,5 @@ set("v", "<leader>d", '"_d')
 set("n", "<leader>y", '"+y')
 set("v", "<leader>y", '"+y')
 
--- Check task
-set("n", "<leader>c", checkbox.toggle)
-
 -- Navigation
 set("n", "<leader>e", ":Oil<cr>")
