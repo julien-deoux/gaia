@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = [
     pkgs.hledger
     pkgs.rustup
@@ -9,6 +7,7 @@
     pkgs.gcc
     pkgs.gleam
     pkgs.swi-prolog
+    pkgs.rsync
   ];
 
   programs.bun.enable = true;
