@@ -161,7 +161,7 @@ return {
 
 		lspconfig.jsonls.setup({
 			capabilities = capabilities,
-			on_attach = on_attach_with_prettier,
+			on_attach = on_attach,
 		})
 
 		lspconfig.yamlls.setup({
