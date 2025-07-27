@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   dark-notify = import ./pkgs/dark-notify { pkgs = pkgs; };
 in
@@ -15,4 +15,8 @@ in
     "/run/current-system/sw/bin"
     "/opt/homebrew/bin"
   ];
+
+  home.file."${config.home.homeDirectory}/Library/Application Support/kanata/kanata.kbd" = {
+    source = ./../kanata/macos.lisp;
+  };
 }

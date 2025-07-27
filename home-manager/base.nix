@@ -29,6 +29,7 @@ in
     pkgs.lua-language-server
     pkgs.stylua
     pkgs.fnm
+    pkgs.kanata
     gca
     gmb
     gpsu
