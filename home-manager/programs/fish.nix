@@ -17,7 +17,6 @@
       set -gx PATH $HOME/.cargo/bin $PATH
       set -gx PATH $HOME/.local/bin $PATH
       set fish_greeting
-      fnm env --use-on-cd --shell fish | source
     '';
     plugins = [
       {

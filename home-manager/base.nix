@@ -28,7 +28,6 @@ in
     pkgs.hurl
     pkgs.lua-language-server
     pkgs.stylua
-    pkgs.fnm
     pkgs.kanata
     gca
     gmb
@@ -103,4 +102,14 @@ in
   programs.jq.enable = true;
   programs.htop.enable = true;
   programs.nushell.enable = true;
+  programs.gpg.enable = true;
+  programs.mise = {
+    enable = true;
+    enableFishIntegration = true;
+    globalConfig = {
+      settings = {
+        idiomatic_version_file_enable_tools = [ "node" ];
+      };
+    };
+  };
 }
