@@ -2,13 +2,13 @@
 {
   programs.git = {
     enable = true;
-    userName = "Julien Déoux";
-    userEmail = "juliendeoux@gmail.com";
+    settings.user.name = "Julien Déoux";
+    settings.user.email = "juliendeoux@gmail.com";
     ignores = [
       ".DS_Store"
       ".ignore"
     ];
-    aliases = {
+    settings.alias = {
       cf = "config";
       a = "add";
       ci = "commit";
@@ -28,12 +28,10 @@
       m = "merge";
       cp = "cherry-pick";
     };
-    extraConfig = {
-      core.editor = "nvim";
-      advice.addIgnoredFile = false;
-      pull.rebase = true;
-      fetch.prune = true;
-      rerere.enabled = true;
-    };
+    settings.core.editor = "nvim";
+    settings.advice.addIgnoredFile = false;
+    settings.pull.rebase = true;
+    settings.fetch.prune = true;
+    settings.rerere.enabled = true;
   };
 }

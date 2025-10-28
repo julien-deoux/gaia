@@ -7,7 +7,6 @@ return {
 		"nvim-telescope/telescope.nvim",
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local telescope = require("telescope.builtin")
 
@@ -77,7 +76,7 @@ return {
 			})
 		end
 
-		lspconfig.rescriptls.setup({
+		vim.lsp.config("rescriptls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 			init_options = {
@@ -88,48 +87,57 @@ return {
 				},
 			},
 		})
+    vim.lsp.enable("rescriptls")
 
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+    vim.lsp.enable("lua_ls")
 
-		lspconfig.html.setup({
+		vim.lsp.config("html", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("html")
 
-		lspconfig.gleam.setup({
+		vim.lsp.config("gleam", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("gleam")
 
-		lspconfig.prolog_ls.setup({
+		vim.lsp.config("prolog_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("prolog_ls")
 
-		lspconfig.purescriptls.setup({
+		vim.lsp.config("purescriptls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("purescriptls")
 
-		lspconfig.cssls.setup({
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_prettier,
 		})
+    vim.lsp.enable("cssls")
 
-		lspconfig.sourcekit.setup({
+		vim.lsp.config("sourcekit", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+    vim.lsp.enable("sourcekit")
 
-		lspconfig.ocamllsp.setup({
+		vim.lsp.config("ocamllsp", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("ocamllsp")
 
-		lspconfig.nixd.setup({
+		vim.lsp.config("nixd", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 			settings = {
@@ -140,67 +148,79 @@ return {
 				},
 			},
 		})
+    vim.lsp.enable("nixd")
 
-		lspconfig.elixirls.setup({
+		vim.lsp.config("elixirls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 			cmd = {
 				"/opt/homebrew/bin/elixir-ls",
 			},
 		})
+    vim.lsp.enable("elixirls")
 
-		lspconfig.gopls.setup({
+		vim.lsp.config("gopls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("gopls")
 
-		lspconfig.templ.setup({
+		vim.lsp.config("templ", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("templ")
 
-		lspconfig.jsonls.setup({
+		vim.lsp.config("jsonls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+    vim.lsp.enable("jsonls")
 
-		lspconfig.yamlls.setup({
+		vim.lsp.config("yamlls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_prettier,
 		})
+    vim.lsp.enable("yamlls")
 
-		lspconfig.taplo.setup({
+		vim.lsp.config("taplo", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("taplo")
 
-		lspconfig.rust_analyzer.setup({
+		vim.lsp.config("rust_analyzer", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+    vim.lsp.enable("rust_analyzer")
 
-		lspconfig.graphql.setup({
+		vim.lsp.config("graphql", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "graphql", "typescriptreact", "javascriptreact", "javascript", "typescript" },
 		})
+    vim.lsp.enable("graphql")
 
-		lspconfig.svelte.setup({
+		vim.lsp.config("svelte", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("svelte")
 
-		lspconfig.astro.setup({
+		vim.lsp.config("astro", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_prettier,
 		})
+    vim.lsp.enable("astro")
 
-		lspconfig.biome.setup({
+		vim.lsp.config("biome", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
+    vim.lsp.enable("biome")
 
-		lspconfig.eslint.setup({
+		vim.lsp.config("eslint", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
@@ -223,8 +243,9 @@ return {
 				"astro",
 			},
 		})
+    vim.lsp.enable("eslint")
 
-		lspconfig.ts_ls.setup({
+		vim.lsp.config("ts_ls", {
 			server = {
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
@@ -233,5 +254,6 @@ return {
 				end,
 			},
 		})
+    vim.lsp.enable("ts_ls")
 	end,
 }
