@@ -1,3 +1,4 @@
 theme = dark:Everforest Dark - Hard,light: Everforest Light - Hard
 font-size = 14
 font-feature = -dlig,-calt,-liga
+macos-option-as-alt = false
