@@ -61,7 +61,7 @@ return {
 			api.nvim_create_autocmd("BufWritePre", {
 				buffer = bufnr,
 				callback = function()
-					lsp.buf.format()
+					lsp.buf.format({ id = client.id })
 				end,
 			})
 		end
@@ -76,7 +76,7 @@ return {
 			})
 		end
 
-		vim.lsp.config("rescriptls", {
+		lsp.config("rescriptls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 			init_options = {
@@ -87,57 +87,57 @@ return {
 				},
 			},
 		})
-    vim.lsp.enable("rescriptls")
+		lsp.enable("rescriptls")
 
-		vim.lsp.config("lua_ls", {
+		lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-    vim.lsp.enable("lua_ls")
+		lsp.enable("lua_ls")
 
-		vim.lsp.config("html", {
+		lsp.config("html", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("html")
+		lsp.enable("html")
 
-		vim.lsp.config("gleam", {
+		lsp.config("gleam", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("gleam")
+		lsp.enable("gleam")
 
-		vim.lsp.config("prolog_ls", {
+		lsp.config("prolog_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("prolog_ls")
+		lsp.enable("prolog_ls")
 
-		vim.lsp.config("purescriptls", {
+		lsp.config("purescriptls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("purescriptls")
+		lsp.enable("purescriptls")
 
-		vim.lsp.config("cssls", {
+		lsp.config("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_prettier,
 		})
-    vim.lsp.enable("cssls")
+		lsp.enable("cssls")
 
-		vim.lsp.config("sourcekit", {
+		lsp.config("sourcekit", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-    vim.lsp.enable("sourcekit")
+		lsp.enable("sourcekit")
 
-		vim.lsp.config("ocamllsp", {
+		lsp.config("ocamllsp", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("ocamllsp")
+		lsp.enable("ocamllsp")
 
-		vim.lsp.config("nixd", {
+		lsp.config("nixd", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 			settings = {
@@ -148,79 +148,79 @@ return {
 				},
 			},
 		})
-    vim.lsp.enable("nixd")
+		lsp.enable("nixd")
 
-		vim.lsp.config("elixirls", {
+		lsp.config("elixirls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 			cmd = {
 				"/opt/homebrew/bin/elixir-ls",
 			},
 		})
-    vim.lsp.enable("elixirls")
+		lsp.enable("elixirls")
 
-		vim.lsp.config("gopls", {
+		lsp.config("gopls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("gopls")
+		lsp.enable("gopls")
 
-		vim.lsp.config("templ", {
+		lsp.config("templ", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("templ")
+		lsp.enable("templ")
 
-		vim.lsp.config("jsonls", {
+		lsp.config("jsonls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-    vim.lsp.enable("jsonls")
+		lsp.enable("jsonls")
 
-		vim.lsp.config("yamlls", {
+		lsp.config("yamlls", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_prettier,
 		})
-    vim.lsp.enable("yamlls")
+		lsp.enable("yamlls")
 
-		vim.lsp.config("taplo", {
+		lsp.config("taplo", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("taplo")
+		lsp.enable("taplo")
 
-		vim.lsp.config("rust_analyzer", {
+		lsp.config("rust_analyzer", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-    vim.lsp.enable("rust_analyzer")
+		lsp.enable("rust_analyzer")
 
-		vim.lsp.config("graphql", {
+		lsp.config("graphql", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "graphql", "typescriptreact", "javascriptreact", "javascript", "typescript" },
 		})
-    vim.lsp.enable("graphql")
+		lsp.enable("graphql")
 
-		vim.lsp.config("svelte", {
+		lsp.config("svelte", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+		lsp.enable("svelte")
+
+		lsp.config("astro", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("svelte")
+		lsp.enable("astro")
 
-		vim.lsp.config("astro", {
-			capabilities = capabilities,
-			on_attach = on_attach_with_prettier,
-		})
-    vim.lsp.enable("astro")
-
-		vim.lsp.config("biome", {
+		lsp.config("biome", {
 			capabilities = capabilities,
 			on_attach = on_attach_with_lsp_format,
 		})
-    vim.lsp.enable("biome")
+		lsp.enable("biome")
 
-		vim.lsp.config("eslint", {
+		lsp.config("eslint", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
@@ -243,9 +243,9 @@ return {
 				"astro",
 			},
 		})
-    vim.lsp.enable("eslint")
+		lsp.enable("eslint")
 
-		vim.lsp.config("ts_ls", {
+		lsp.config("ts_ls", {
 			server = {
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
@@ -254,6 +254,6 @@ return {
 				end,
 			},
 		})
-    vim.lsp.enable("ts_ls")
+		lsp.enable("ts_ls")
 	end,
 }
