@@ -2,12 +2,7 @@ local g = vim.g
 local opt = vim.opt
 local cmd = vim.cmd
 local api = vim.api
-
 g.mapleader = " "
-
--- Line numbers
-opt.nu = true
-opt.relativenumber = true
 
 -- Indentation
 opt.tabstop = 4
@@ -82,5 +77,29 @@ api.nvim_create_autocmd("FileType", {
 		opt.shiftwidth = 2
 		opt.tabstop = 2
 		opt.softtabstop = 2
+	end,
+})
+
+-- Line numbers
+opt.nu = true
+opt.relativenumber = true
+
+local numbertoggle = api.nvim_create_augroup("numbertoggle", {})
+api.nvim_create_autocmd({ "InsertLeave" }, {
+	group = numbertoggle,
+	callback = function()
+		if opt.number and api.nvim_get_mode() ~= "i" then
+			opt.relativenumber = true
+		end
+	end,
+})
+
+api.nvim_create_autocmd({ "InsertEnter" }, {
+	group = numbertoggle,
+	callback = function()
+		if opt.number then
+			opt.relativenumber = false
+			cmd("redraw")
+		end
 	end,
 })
