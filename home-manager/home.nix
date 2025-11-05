@@ -6,4 +6,8 @@
     pkgs.gcc
     pkgs.rsync
   ];
+  programs.mise.globalConfig.tools = {
+    bun = "latest";
+    node = "latest";
+  };
 }
