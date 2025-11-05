@@ -222,16 +222,7 @@ return {
 
 		lsp.config("eslint", {
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						cmd("EslintFixAll")
-						cmd("PrettierAsync")
-					end,
-				})
-			end,
+			on_attach = on_attach_with_prettier,
 			filetypes = {
 				"javascript",
 				"javascriptreact",
@@ -246,13 +237,11 @@ return {
 		lsp.enable("eslint")
 
 		lsp.config("ts_ls", {
-			server = {
-				capabilities = capabilities,
-				on_attach = function(client, bufnr)
-					on_attach(client, bufnr)
-					require("twoslash-queries").attach(client, bufnr)
-				end,
-			},
+			capabilities = capabilities,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				require("twoslash-queries").attach(client, bufnr)
+			end,
 		})
 		lsp.enable("ts_ls")
 	end,
