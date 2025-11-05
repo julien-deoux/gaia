@@ -33,5 +33,6 @@
     settings.pull.rebase = true;
     settings.fetch.prune = true;
     settings.rerere.enabled = true;
+    settings.init.defaultBranch = "main";
   };
 }
