@@ -220,22 +220,6 @@ return {
 		})
 		lsp.enable("biome")
 
-		lsp.config("eslint", {
-			capabilities = capabilities,
-			on_attach = on_attach_with_prettier,
-			filetypes = {
-				"javascript",
-				"javascriptreact",
-				"javascript.jsx",
-				"typescript",
-				"typescriptreact",
-				"typescript.tsx",
-				"vue",
-				"astro",
-			},
-		})
-		lsp.enable("eslint")
-
 		lsp.config("ts_ls", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
