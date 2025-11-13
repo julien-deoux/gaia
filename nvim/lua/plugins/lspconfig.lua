@@ -1,3 +1,22 @@
+local function code_action_sync(client, bufnr, action)
+	local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
+	params.context = {
+		diagnostics = {},
+		only = { action },
+	}
+	local result = client.request_sync("textDocument/codeAction", params, 1000, bufnr)
+	if not result then
+		return
+	end
+	for _, r in pairs(result.result or {}) do
+		if r.edit then
+			vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
+		elseif r.command then
+			vim.lsp.buf.execute_command(r.command)
+		end
+	end
+end
+
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -83,19 +102,7 @@ return {
 		end
 
 		local biome = function(client, bufnr)
-			local params = lsp.util.make_range_params(0, client.offset_encoding)
-			params.context = { diagnostics = {}, only = { "source.fixAll.biome" } }
-			local result = client.request_sync("textDocument/codeAction", params, 1000, bufnr)
-			if not result then
-				return
-			end
-			for _, r in pairs(result.result or {}) do
-				if r.edit then
-					lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
-				elseif r.command then
-					lsp.buf.execute_command(r.command)
-				end
-			end
+			code_action_sync(client, bufnr, "source.fixAll.biome")
 			lspformat(client)
 		end
 
